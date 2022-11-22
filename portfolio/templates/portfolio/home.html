@@ -1,0 +1,92 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container col-xxl-8 px-4 py-5 bg-dark text-light">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{% static 'portfolio/main photo.jpg' %}" class="img-fluid">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3"><b>Hello! I am Egor,<br> beginner backend developer.</b></h1>
+        <p class="lead">Нужно будет создать форму 'Contact' sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+      </div>
+    </div>
+</div>
+
+
+
+<h2 id="portfolio" class="mt-5">Portfolio</h2>
+<hr>
+<br>
+<div class="row">
+    {% for project in projects %}
+    <div class="col-lg-4 col-md-6">
+
+        {% if project.url %}
+        <a href="{{ project.url }}">
+            <img src="{{ project.image.url }}" class="img-fluid mb-2">
+        </a>
+        {% else %}
+
+        <img src="{{ project.image.url }}" class="img-fluid mb-2">
+        {% endif %}
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+
+    </div>
+    {% endfor %}
+</div>
+<br>
+<br>
+<br>
+
+<section id="bar-chart" class="dark nopad-b">
+    <h2 id="my skills" class="mt-5">My Skills</h2>
+<hr>
+<br>
+<br>
+    <p>Python</p>
+    <div class="progress" style="height: 20px;">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0"
+             aria-valuemax="100"></div>
+    </div>
+    <br>
+    <p>Django</p>
+    <div class="progress" style="height: 20px;">
+        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+             aria-valuemax="100"></div>
+    </div>
+    <br>
+    <p>SQL</p>
+    <div class="progress" style="height: 20px;">
+        <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="75" aria-valuemin="0"
+             aria-valuemax="100"></div>
+    </div>
+    <br>
+    <p>Git & GitHub</p>
+    <div class="progress" style="height: 20px;">
+        <div class="progress-bar bg-dark" role="progressbar" style="width: 73%" aria-valuenow="100" aria-valuemin="0"
+             aria-valuemax="100"></div>
+    </div>
+    <br>
+    <p>HTML</p>
+    <div class="progress" style="height: 20px;">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 66%" aria-valuenow="100" aria-valuemin="0"
+             aria-valuemax="100"></div>
+    </div>
+    <br>
+    <p>CSS</p>
+    <div class="progress" style="height: 20px;">
+        <div class="progress-bar bg-primary" role="progressbar" style="width: 42%" aria-valuenow="100" aria-valuemin="0"
+             aria-valuemax="100"></div>
+    </div>
+    <br>
+    <br>
+  <br>
+  <br>
+</section>
+
+{% endblock %}
